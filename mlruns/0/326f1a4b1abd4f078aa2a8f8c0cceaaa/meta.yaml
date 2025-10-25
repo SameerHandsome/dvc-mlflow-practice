@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/Tracking/mlruns/0/326f1a4b1abd4f078aa2a8f8c0cceaaa/artifacts
+end_time: 1761374468502
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 326f1a4b1abd4f078aa2a8f8c0cceaaa
+run_name: sneaky-bat-815
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761374468282
+status: 3
+tags: []
+user_id: Administrator

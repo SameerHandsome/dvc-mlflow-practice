@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/house.csv
+      hash: md5
+      md5: ebb8f63ef6bfc0aa22829b404b5ef11a
+      size: 98
+    - path: src/preprocess.py
+      hash: md5
+      md5: e8027808ca3933e86926c5ab98e79c80
+      size: 477
+    outs:
+    - path: data/processed/X.csv
+      hash: md5
+      md5: 682060c9a801b28b8b8fa07d625837df
+      size: 135
+    - path: data/processed/y.csv
+      hash: md5
+      md5: 7b1d6c016b700ad0a03ec954cba155a5
+      size: 47
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/X.csv
+      hash: md5
+      md5: 682060c9a801b28b8b8fa07d625837df
+      size: 135
+    - path: data/processed/y.csv
+      hash: md5
+      md5: 7b1d6c016b700ad0a03ec954cba155a5
+      size: 47
+    - path: src/train.py
+      hash: md5
+      md5: 3ab98ae78daa5deadaad965e1ba72f0b
+      size: 1528
+    params:
+      params.yaml:
+        train:
+          n_estimators: 100
+          max_depth: 3
+          learning_rate: 0.1
+    outs:
+    - path: models/linear_model.pkl
+      hash: md5
+      md5: aa4957e9e84c06e501cc43bdd78a823a
+      size: 879

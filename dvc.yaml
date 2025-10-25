@@ -1,0 +1,20 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+      - data/house.csv
+      - src/preprocess.py
+    outs:
+      - data/processed/X.csv
+      - data/processed/y.csv
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - data/processed/X.csv
+      - data/processed/y.csv
+      - src/train.py
+    outs:
+      - models/linear_model.pkl
+    params:
+      - train
